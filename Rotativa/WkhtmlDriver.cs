@@ -30,6 +30,9 @@ namespace Rotativa
                 html = SpecialCharsEncode(html);
             }
 
+            if(!File.Exists(Path.Combine(wkhtmlPath, wkhtmlExe)))
+                throw new ArgumentException("Exe not found @ " + Path.Combine(wkhtmlPath, wkhtmlExe));
+
             var proc = new Process
             {
                 StartInfo = new ProcessStartInfo
